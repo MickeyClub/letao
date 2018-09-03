@@ -1,0 +1,51 @@
+// 乐淘主题色
+@mainColor: #006699;
+
+html,body{
+    height: 100%;
+}
+body{
+    padding: 45px 0;
+}
+// 头部公共样式
+#header{
+    width: 100%;
+    height: 45px;
+    position: fixed;
+    top: 0;
+    background-color: @mainColor;
+    z-index: 999;
+    >h4{
+        text-align: center;
+        color: white;
+        margin: 0;
+        line-height: 45px;
+    }
+    >a{
+        color: white;
+        &.fa-search{
+            position: absolute;
+            right: 20px;
+            top: 15px;
+            // line-height: 45px;
+        }
+    }
+}
+
+#main{
+    position: relative;
+    height: 100%;
+    // padding: 45px 0;
+}
+
+// 底部公共样式
+#footer{
+    width: 100%;
+    height: 45px;
+    position: fixed;
+    bottom: 0;
+    background-color: @mainColor;
+    .mui-row{
+
+    }
+}

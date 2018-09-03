@@ -1,0 +1,40 @@
+html,
+body {
+  height: 100%;
+}
+body {
+  padding: 45px 0;
+}
+#header {
+  width: 100%;
+  height: 45px;
+  position: fixed;
+  top: 0;
+  background-color: #006699;
+  z-index: 999;
+}
+#header > h4 {
+  text-align: center;
+  color: white;
+  margin: 0;
+  line-height: 45px;
+}
+#header > a {
+  color: white;
+}
+#header > a.fa-search {
+  position: absolute;
+  right: 20px;
+  top: 15px;
+}
+#main {
+  position: relative;
+  height: 100%;
+}
+#footer {
+  width: 100%;
+  height: 45px;
+  position: fixed;
+  bottom: 0;
+  background-color: #006699;
+}

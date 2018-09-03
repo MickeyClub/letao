@@ -1,0 +1,64 @@
+#header {
+  width: 100%;
+  height: 45px;
+  position: fixed;
+  top: 0;
+  background-color: #006699;
+  z-index: 999;
+}
+#header > h4 {
+  text-align: center;
+  color: white;
+  margin: 0;
+  line-height: 45px;
+}
+#header > a {
+  color: white;
+}
+#header > a.fa-search {
+  position: absolute;
+  right: 20px;
+  top: 15px;
+}
+#main {
+  padding: 45px 0;
+}
+#footer {
+  width: 100%;
+  height: 45px;
+  position: fixed;
+  bottom: 0;
+  background-color: #006699;
+}
+#main #nav {
+  padding: 10px;
+}
+#main #nav a img {
+  width: 100%;
+}
+#main #banner .left a {
+  display: block;
+}
+#main #banner .left a img {
+  width: 50%;
+  float: left;
+}
+#main #banner .right a {
+  display: block;
+}
+#main #banner .right a img {
+  width: 100%;
+  float: left;
+}
+#main #sport .title a,
+#main #brand .title a {
+  display: block;
+}
+#main #sport .title a img,
+#main #brand .title a img {
+  width: 100%;
+}
+#main #sport .content .mui-row .product .product-img,
+#main #brand .content .mui-row .product .product-img {
+  width: 25%;
+}
