@@ -1,3 +1,11 @@
+html,
+body {
+  height: 100%;
+}
+body {
+  padding: 45px 0;
+  background-color: #fff;
+}
 #header {
   width: 100%;
   height: 45px;
@@ -21,7 +29,8 @@
   top: 15px;
 }
 #main {
-  padding: 45px 0;
+  position: relative;
+  height: 100%;
 }
 #footer {
   width: 100%;
@@ -50,15 +59,89 @@
   width: 100%;
   float: left;
 }
-#main #sport .title a,
 #main #brand .title a {
   display: block;
 }
-#main #sport .title a img,
 #main #brand .title a img {
   width: 100%;
 }
-#main #sport .content .mui-row .product .product-img,
-#main #brand .content .mui-row .product .product-img {
-  width: 25%;
+#main #brand .content .mui-row a {
+  display: block;
+}
+#main #brand .content .mui-row a img {
+  width: 100%;
+}
+#main #sport .title,
+#main #women .title,
+#main #man .title {
+  padding-bottom: 6px;
+}
+#main #sport .title a,
+#main #women .title a,
+#main #man .title a {
+  display: block;
+}
+#main #sport .title a img,
+#main #women .title a img,
+#main #man .title a img {
+  width: 100%;
+}
+#main #sport .content .mui-row > div,
+#main #women .content .mui-row > div,
+#main #man .content .mui-row > div {
+  padding: 0px 5px;
+}
+#main #sport .content .mui-row .product,
+#main #women .content .mui-row .product,
+#main #man .content .mui-row .product {
+  margin-bottom: 10px;
+  text-align: center;
+  box-shadow: 0px 0px 1px #ccc;
+  padding-bottom: 10px;
+}
+#main #sport .content .mui-row .product .product-img img,
+#main #women .content .mui-row .product .product-img img,
+#main #man .content .mui-row .product .product-img img {
+  width: 100%;
+}
+#main #sport .content .mui-row .product .product-name,
+#main #women .content .mui-row .product .product-name,
+#main #man .content .mui-row .product .product-name {
+  font-size: 14px;
+  margin-top: 0;
+  margin-bottom: 10px;
+  color: #8f8f94;
+}
+#main #sport .content .mui-row .product .product-price,
+#main #women .content .mui-row .product .product-price,
+#main #man .content .mui-row .product .product-price {
+  color: #8f8f94;
+}
+#main #sport .content .mui-row .product .product-price span,
+#main #women .content .mui-row .product .product-price span,
+#main #man .content .mui-row .product .product-price span {
+  color: red;
+}
+#main #sport .content .mui-row .product .product-buy,
+#main #women .content .mui-row .product .product-buy,
+#main #man .content .mui-row .product .product-buy {
+  padding-bottom: 5px;
+}
+#footer .mui-row {
+  text-align: center;
+}
+#footer .mui-row a {
+  margin-top: 5px;
+  display: block;
+  color: white;
+}
+#footer .mui-row a i {
+  display: block;
+  font-size: 14px;
+}
+#footer .mui-row a span {
+  font-size: 12px;
+}
+#footer .mui-row a.active {
+  color: orange;
 }

@@ -35,15 +35,7 @@
         }
     }
 
-    // #brand{
-    //     .title{
-
-    //     }
-    //     .content{
-
-    //     }
-
-    #sport,#brand{
+    #brand{
         .title{
             a{
                 display: block;
@@ -54,9 +46,10 @@
         }
         .content{
             .mui-row{
-                .product{
-                    .product-img{
-                        width: 25%;
+                a{
+                    display: block;
+                    img{
+                        width: 100%;
                     }
                 }
 
@@ -64,5 +57,73 @@
         }
     }
 
+    #sport,#women,#man{
+        .title{
+            a{
+                display: block;
+                img{
+                    width: 100%;
+                }
+            }
+            padding-bottom: 6px;
+        }
+        .content{
+            .mui-row{
+                >div{
+                    padding: 0px 5px;
+                }
+                .product{
+                    margin-bottom: 10px;
+                    text-align: center;
+                    box-shadow: 0px 0px 1px #ccc;
+                    padding-bottom: 10px;
+                    .product-img{
+                        img{
+                            width: 100%;
+                        }
+                    }
+                    .product-name{
+                        font-size: 14px;
+                        margin-top: 0;
+                        margin-bottom: 10px;
+                        color: #8f8f94;
+                    }
+                    .product-price{
+                        color: #8f8f94;
+                        span{
+                            color: red;
+                        }
+                    }
+                    .product-buy{
+                        padding-bottom: 5px;
+                    }
+                }
+            }
+        }
+    }
+}
 
+// 底部
+#footer{
+    .mui-row{
+        text-align: center;
+        a{  
+            // line-height: 35px;
+            margin-top: 5px;
+            display: block;
+            color: white;
+            i{
+                display: block;
+                font-size: 14px;
+            }
+            span{
+                // display: block;
+                font-size: 12px;
+            }
+            &.active{
+                color: orange;
+            }
+        }
+
+    }
 }
