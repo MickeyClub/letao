@@ -23,18 +23,18 @@
         <form action="#">
             <input type="searc" placeholder="请输入要搜索的商品">
         </form>
-        <a href="#" class="fa fa-search"></a>
+        <a href="./search.html" class="fa fa-search"></a>
     </header>
 
     <!-- 主题区域 -->
     <main id="main">
         <div class="category-left">
             <ul>
-                <li class="active"><a href="#">运动馆</a></li>
+                <!-- <li class="active"><a href="#">运动馆</a></li>
                 <li><a href="#">女士馆</a></li>
                 <li><a href="#">男士馆</a></li>
                 <li><a href="#">帆布馆</a></li>
-                <li><a href="#">户外馆</a></li>
+                <li><a href="#">户外馆</a></li> -->
             </ul>
         </div>
         <div class="category-right">
@@ -49,11 +49,11 @@
                 <div class="mui-scroll">
                     <!--这里放置真实显示的DOM内容-->
                     <div class="mui-row">
-                        <div class="mui-col-xs-4"><a href="#"><img src="images/brand1.png" alt=""></a></div>
+                        <!-- <div class="mui-col-xs-4"><a href="#"><img src="images/brand1.png" alt=""></a></div>
                         <div class="mui-col-xs-4"><a href="#"><img src="images/brand1.png" alt=""></a></div>
                         <div class="mui-col-xs-4"><a href="#"><img src="images/brand1.png" alt=""></a></div>
                         <div class="mui-col-xs-4"><a href="#"><img src="images/brand2.png" alt=""></a></div>
-                        <div class="mui-col-xs-4"><a href="#"><img src="images/brand3.png" alt=""></a></div>
+                        <div class="mui-col-xs-4"><a href="#"><img src="images/brand3.png" alt=""></a></div> -->
                     </div>
                 </div>
             </div>
@@ -72,29 +72,34 @@
     </footer>
 
 
-    <!-- <script id="categoryTmp" type="text/html">
+    <!-- 左侧分类模板 -->
+    <script id="categoryTmp" type="text/html">
         {{each rows value i}}
             <li class="{{i == 0 ? 'active' : ''}}"><a href="#" data-id="{{value.id}}">{{value.categoryName}}</a></li>
         {{/each}}
-    </script> -->
-    <!-- 创建右侧品牌的模板 -->
-    <!-- <script id="brandTmp" type="text/html">
-    {{if rows.length > 0}}
-
-        {{each rows value}}
-            <div class="mui-col-xs-4">
-                <a href="#">
-                    <img src="{{value.brandLogo}}" alt="">
-                    <p>{{value.brandName}}</p>
-                </a>
-            </div>
+    </script>
+    <!-- <script id="categoryTmp" type="text/html">
+        {{each rows i }}
+            <li class="{{i == 0 ? 'active' : ''}}"><a href="#" data-id="{{$value.id}}">{{$value.categoryName}}</a></li>
         {{/each}}
-    {{else}}
-        <p>该分类没有品牌了</p>
-    {{/if}}
     </script> -->
-   
-   
+
+
+    <!-- 右侧品牌模板 -->
+    <script id="brandTmp" type="text/html">
+       {{if rows.length > 0}}
+        {{each rows}}
+        <div class="mui-col-xs-4">
+            <a href="#">
+                <img src="{{$value.brandLogo}}" alt="">
+                <p>{{brandName}}</p>
+            </a>
+        </div>
+            {{/each}}
+       {{else}}
+            <p style="color: red">该分类没有品牌了</p>
+        {{/if}}
+    </script>
 
 
     
