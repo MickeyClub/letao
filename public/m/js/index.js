@@ -1,6 +1,6 @@
 $(function () {
     var letao = new Letao();
-    // letao.initSlide();
+    letao.initSlide();
     letao.initScroll()
 })
 
@@ -10,7 +10,7 @@ var Letao = function () {
 
 Letao.prototype = {
     // 初始化轮播图方法
-    inintSlide: function () {
+    initSlide: function () {
         //获得slider插件对象
         var gallery = mui('.mui-slider');
         gallery.slider({

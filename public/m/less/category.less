@@ -1,0 +1,75 @@
+@import "base.less";
+
+// #main{
+//     display: flex;
+//     .category-left{
+//         width: 80px;
+//         >ul{
+//             >li{
+//                 >a{
+//                     display: block;
+//                     width: 80px;
+//                     height: 45px;
+//                     line-height: 45px;
+//                     background-color: #fff;
+//                     text-align: center;
+//                 }
+//             }   
+//         }
+//     }
+//     .category-right{
+//         flex: 1;
+//     }
+// }
+
+#main{
+	display:flex;
+	background-color: #ccc;
+	.category-left{
+		width: 80px;
+		>ul{
+			>li{
+				>a{
+					display: block;
+					width: 80px;
+					height: 45px;
+					line-height: 45px;
+					text-align: center;
+					font-size: 14px;
+					background-color: #fff;
+					border-bottom: 1px solid #ccc;
+				}
+				&.active{
+					>a{
+						background-color: #ccc;
+						color:@mainColor;
+					}
+				}
+			}
+		}
+	}
+	.category-right{
+		flex:1;
+		/* 父元素要添加相对定位 */
+		position: relative;
+		.mui-scroll{
+			/* 如果设置100%和父元素一样还是无法超出 101%超出了就可以滚动 */
+			min-height: 101%;
+		}
+		.mui-row{		
+		   /* 给里面的子元素mui-row添加padding */	
+			padding: 10px;			
+			a{
+				display: block;
+				background-color: #fff;
+				>img{
+					width: 100%;
+				}
+				>p{
+					font-size: 14px;
+					text-align: center;
+				}
+			}
+		}
+	}
+}

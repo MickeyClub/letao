@@ -8,27 +8,108 @@ body{
     padding: 45px 0;
     background-color: #fff;
 }
+
+* {
+    margin: 0px;
+    padding: 0px;
+    /* 移动端一般会设置盒模型为border-box 防止边框和padding撑大盒子超出屏幕宽度出现滚动条 */
+    box-sizing: border-box;
+    /*移动端a标签按住的高亮背景色 设置透明即可*/
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+}
+
+li {
+    list-style: none;
+}
+
+input {
+    /* 去除输入框的内外边框 */
+    border: 0;
+    outline: 0;
+}
+
+img {
+    /* 去掉图片的边框 */
+    border: none;
+    /* 去掉图片底部3px的间距 */
+    vertical-align: middle;
+}
+
+a {
+    color: #666;
+    text-decoration: none;
+}
+
+
+
+
+
 // 头部公共样式
-#header{
+// #header{
+//     width: 100%;
+//     height: 45px;
+//     position: fixed;
+//     top: 0;
+//     background-color: @mainColor;
+//     z-index: 999;
+//     >h4{
+//         text-align: center;
+//         color: white;
+//         margin: 0;
+//         line-height: 45px;
+//     }
+//     >a{
+//         color: white;
+//         &.fa-search{
+//             position: absolute;
+//             right: 20px;
+//             top: 15px;
+//             // line-height: 45px;
+//         }
+//     }
+// }
+#header {
     width: 100%;
     height: 45px;
     position: fixed;
-    top: 0;
+    top: 0px;
     background-color: @mainColor;
     z-index: 999;
-    >h4{
-        text-align: center;
-        color: white;
+    padding: 0 45px;
+    >h4 {
+        color: #fff;
+        /* 注意mui会给h4添加margin要再次去掉 */
         margin: 0;
         line-height: 45px;
+        font-weight: normal;
+        text-align: center;
     }
-    >a{
-        color: white;
-        &.fa-search{
-            position: absolute;
-            right: 20px;
-            top: 15px;
-            // line-height: 45px;
+    form{
+        padding-top: 5px;
+        input{
+            height: 35px;
+            width: 100%;
+            background-color: #fff;
+            text-align:left;
+            font-size: 14px;
+            /* 注意input默认有底部15px间距要去掉 */
+            margin-bottom: 0px;
+        }
+    }
+    >a {
+        color: #fff;
+        height: 45px;
+        width: 45px;
+        display: block;
+        line-height: 45px;
+        text-align: center;
+        position: absolute;
+        top: 0px;
+        &.fa-arrow-left{
+            left: 0px;
+        }
+        &.fa-search {
+            right: 0px;
         }
     }
 }
@@ -47,6 +128,31 @@ body{
     bottom: 0;
     background-color: @mainColor;
     .mui-row{
+
+    }
+}
+
+// 底部
+#footer{
+    .mui-row{
+        text-align: center;
+        a{  
+            // line-height: 35px;
+            margin-top: 5px;
+            display: block;
+            color: white;
+            i{
+                display: block;
+                font-size: 14px;
+            }
+            span{
+                // display: block;
+                font-size: 12px;
+            }
+            &.active{
+                color: orange;
+            }
+        }
 
     }
 }

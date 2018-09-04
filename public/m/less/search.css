@@ -1,3 +1,4 @@
+/* 引入公共样式 */
 html,
 body {
   height: 100%;
@@ -105,4 +106,60 @@ a {
 }
 #footer .mui-row a.active {
   color: orange;
+}
+#main .search-from {
+  display: flex;
+  padding: 10px;
+}
+#main .search-from .input-search {
+  height: 30px;
+  flex: 1;
+  background-color: #fff;
+  font-size: 14px;
+  text-align-last: left;
+  border: 1px solid #006699;
+  border-radius: 6px 0px 0px 6px;
+  margin-bottom: 0;
+}
+#main .search-from .btn-search {
+  width: 60px;
+  height: 30px;
+  border-color: #006699;
+  background-color: #006699;
+  border-radius: 0px 6px 6px 0px;
+}
+#main .search-history {
+  padding: 0px 10px;
+}
+#main .search-history .title {
+  line-height: 30px;
+  font-size: 14px;
+}
+#main .search-history .content > ul {
+  border: 1px solid #ccc;
+  border-radius: 6px;
+}
+#main .search-history .content > ul > li {
+  line-height: 30px;
+  height: 30px;
+  padding-left: 20px;
+  border-bottom: 1px solid #ccc;
+  position: relative;
+}
+#main .search-history .content > ul > li > a {
+  display: block;
+  font-size: 14px;
+}
+#main .search-history .content > ul > li > i {
+  position: absolute;
+  right: 10px;
+  top: 10px;
+  font-size: 14px;
+  top: 7px;
+}
+#main .search-history .content > ul > li:last-of-type {
+  border-bottom: none;
+}
+#main .search-history .content > ul > li:nth-of-type(n+2) {
+  border-top: 0 ;
 }

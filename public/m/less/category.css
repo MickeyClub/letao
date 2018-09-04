@@ -106,3 +106,48 @@ a {
 #footer .mui-row a.active {
   color: orange;
 }
+#main {
+  display: flex;
+  background-color: #ccc;
+}
+#main .category-left {
+  width: 80px;
+}
+#main .category-left > ul > li > a {
+  display: block;
+  width: 80px;
+  height: 45px;
+  line-height: 45px;
+  text-align: center;
+  font-size: 14px;
+  background-color: #fff;
+  border-bottom: 1px solid #ccc;
+}
+#main .category-left > ul > li.active > a {
+  background-color: #ccc;
+  color: #006699;
+}
+#main .category-right {
+  flex: 1;
+  /* 父元素要添加相对定位 */
+  position: relative;
+}
+#main .category-right .mui-scroll {
+  /* 如果设置100%和父元素一样还是无法超出 101%超出了就可以滚动 */
+  min-height: 101%;
+}
+#main .category-right .mui-row {
+  /* 给里面的子元素mui-row添加padding */
+  padding: 10px;
+}
+#main .category-right .mui-row a {
+  display: block;
+  background-color: #fff;
+}
+#main .category-right .mui-row a > img {
+  width: 100%;
+}
+#main .category-right .mui-row a > p {
+  font-size: 14px;
+  text-align: center;
+}

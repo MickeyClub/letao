@@ -127,21 +127,3 @@ body {
 #main #man .content .mui-row .product .product-buy {
   padding-bottom: 5px;
 }
-#footer .mui-row {
-  text-align: center;
-}
-#footer .mui-row a {
-  margin-top: 5px;
-  display: block;
-  color: white;
-}
-#footer .mui-row a i {
-  display: block;
-  font-size: 14px;
-}
-#footer .mui-row a span {
-  font-size: 12px;
-}
-#footer .mui-row a.active {
-  color: orange;
-}
