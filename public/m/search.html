@@ -37,7 +37,12 @@
 
             <div class="content">
                 <ul>
-
+                    <!-- <li>
+                        <a href="#">
+                            <span>{{value.search}}</span>
+                        </a>
+                        <i class="fa fa-close mui-pull-right btn-delete" data-id="{{value.id}}"></i>
+                    </li> -->
                 </ul>
             </div>
         </div>
@@ -54,7 +59,7 @@
     </footer>
     
     <!-- 模板 -->
-    <script id="historyTmp" type="text/html">
+    <!-- <script id="historyTmp" type="text/html">
         {{each list value i}}
             <li>
                 <a href="#">
@@ -64,6 +69,18 @@
             </li>
 
         {{/each}}
+    </script> -->
+
+    <script id="historyTmp" type="text/html">
+        {{each list value }}
+            <li>
+                <a href="#">
+                    <span>{{value.search}}</span>
+                </a>
+                <i class="fa fa-close mui-pull-right btn-delete" data-id="{{value.id}}"></i>
+            </li>
+        {{/each}}
+    
     </script>
 
     <!-- 5. 引入mui的js文件 提供mui js插件-->

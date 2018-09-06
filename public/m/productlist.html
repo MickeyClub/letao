@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <title>自写版乐淘移动端</title>
+    <!-- 1. 引入mui的CSS文件 提供mui样式 -->
+    <link rel="stylesheet" href="lib/mui/css/mui.css">
+    <!-- 2. 引入字体图标的CSS文件  提供字体图标-->
+    <link rel="stylesheet" href="lib/fontAwesome/css/font-awesome.css">
+    <!-- 3. 引入主页的less文件 注意 rel="stylesheet/less"-->
+    <link rel="stylesheet/less" href="less/productlist.less">
+    <!-- 4. 引入less的编译器文件 编译less -->
+    <script src="lib/less/less.js"></script>
+</head>
+
+<body>
+    <!-- 头部区域 -->
+    <header id="header">
+        <a href="#" class="fa fa-arrow-left"></a>
+        <h4>搜索中心</h4>
+    </header>
+    <!-- 中间主体区域 -->
+    <main id="main">
+        <!-- 下拉刷新父容器 -->
+        <div class="mui-scroll-wrapper" id="refreshContainer">
+            <div class="mui-scroll">
+
+                <div class="search-from">
+                    <input type="search" class="input-search" placeholder="请输入">
+                    <button type="button" class="btn-search mui-btn mui-btn-primary">按钮</button>
+                </div>
+        
+                <!-- 商品列表 -->
+                <div class="product-list">
+                    <div class="title">
+                        <div class="mui-row">
+                            <div class="mui-col-xs-3"><a href="#"><span>上架时间</span><i class="fa fa-angle-down"></i></a></div>
+                            <div class="mui-col-xs-3"><a href="#"><span>上架时间</span><i class="fa fa-angle-down"></i></a></div>
+                            <div class="mui-col-xs-3"><a href="#"><span>上架时间</span><i class="fa fa-angle-down"></i></a></div>
+                            <div class="mui-col-xs-3"><a href="#"><span>上架时间</span><i class="fa fa-angle-down"></i></a></div>
+                        </div>
+                    </div>
+        
+                    <div class="product-content">
+                        <div class="mui-row">
+                            <div class="mui-col-xs-6">
+                                <div class="product">
+                                    <a href="#" class="product-img">
+                                        <img src="./images/product.jpg" alt="">
+                                    </a>
+                                    <p class="product-name">
+                                        adidas阿迪达斯 男式 场下休闲篮球鞋S83700
+                                    </p>
+                                    <p class="product-price"> 
+                                        <span>¥560.00</span>
+                                        <del>¥888.00</del>
+                                    </p>
+                                    <button class="mui-btn mui-btn-primary product-buy">立即购买</button>
+                                </div>
+                            </div>
+                            <div class="mui-col-xs-6">
+                                <div class="product">
+                                    <a href="#" class="product-img">
+                                        <img src="./images/product.jpg" alt="">
+                                    </a>
+                                    <p class="product-name">
+                                        adidas阿迪达斯 男式 场下休闲篮球鞋S83700
+                                    </p>
+                                    <p class="product-price"> 
+                                        <span>¥560.00</span>
+                                        <del>¥888.00</del>
+                                    </p>
+                                    <button class="mui-btn mui-btn-primary product-buy">立即购买</button>
+                                </div>
+                            </div>
+                            <div class="mui-col-xs-6">
+                                <div class="product">
+                                    <a href="#" class="product-img">
+                                        <img src="./images/product.jpg" alt="">
+                                    </a>
+                                    <p class="product-name">
+                                        adidas阿迪达斯 男式 场下休闲篮球鞋S83700
+                                    </p>
+                                    <p class="product-price"> 
+                                        <span>¥560.00</span>
+                                        <del>¥888.00</del>
+                                    </p>
+                                    <button class="mui-btn mui-btn-primary product-buy">立即购买</button>
+                                </div>
+                            </div>
+                            <div class="mui-col-xs-6">
+                                <div class="product">
+                                    <a href="#" class="product-img">
+                                        <img src="./images/product.jpg" alt="">
+                                    </a>
+                                    <p class="product-name">
+                                        adidas阿迪达斯 男式 场下休闲篮球鞋S83700
+                                    </p>
+                                    <p class="product-price"> 
+                                        <span>¥560.00</span>
+                                        <del>¥888.00</del>
+                                    </p>
+                                    <button class="mui-btn mui-btn-primary product-buy">立即购买</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="product-content">
+                        <div class="mui-row">
+                            <div class="mui-col-xs-6">
+                                <div class="product">
+                                    <a href="#" class="product-img">
+                                        <img src="./images/product.jpg" alt="">
+                                    </a>
+                                    <p class="product-name">
+                                        adidas阿迪达斯 男式 场下休闲篮球鞋S83700
+                                    </p>
+                                    <p class="product-price"> 
+                                        <span>¥560.00</span>
+                                        <del>¥888.00</del>
+                                    </p>
+                                    <button class="mui-btn mui-btn-primary product-buy">立即购买</button>
+                                </div>
+                            </div>
+                            <div class="mui-col-xs-6">
+                                <div class="product">
+                                    <a href="#" class="product-img">
+                                        <img src="./images/product.jpg" alt="">
+                                    </a>
+                                    <p class="product-name">
+                                        adidas阿迪达斯 男式 场下休闲篮球鞋S83700
+                                    </p>
+                                    <p class="product-price"> 
+                                        <span>¥560.00</span>
+                                        <del>¥888.00</del>
+                                    </p>
+                                    <button class="mui-btn mui-btn-primary product-buy">立即购买</button>
+                                </div>
+                            </div>
+                            <div class="mui-col-xs-6">
+                                <div class="product">
+                                    <a href="#" class="product-img">
+                                        <img src="./images/product.jpg" alt="">
+                                    </a>
+                                    <p class="product-name">
+                                        adidas阿迪达斯 男式 场下休闲篮球鞋S83700
+                                    </p>
+                                    <p class="product-price"> 
+                                        <span>¥560.00</span>
+                                        <del>¥888.00</del>
+                                    </p>
+                                    <button class="mui-btn mui-btn-primary product-buy">立即购买</button>
+                                </div>
+                            </div>
+                            <div class="mui-col-xs-6">
+                                <div class="product">
+                                    <a href="#" class="product-img">
+                                        <img src="./images/product.jpg" alt="">
+                                    </a>
+                                    <p class="product-name">
+                                        adidas阿迪达斯 男式 场下休闲篮球鞋S83700
+                                    </p>
+                                    <p class="product-price"> 
+                                        <span>¥560.00</span>
+                                        <del>¥888.00</del>
+                                    </p>
+                                    <button class="mui-btn mui-btn-primary product-buy">立即购买</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </main>
+    <!-- 底部区域 -->
+    <footer id="footer">
+        <div class="mui-row">
+            <!-- .mui-col-xs-3*4>a[href="#"]>i.fa.fa-home+span{首页} -->
+            <div class="mui-col-xs-3"><a href="index.html" class="active"><i class="fa fa-home"></i><span>首页</span></a></div>
+            <div class="mui-col-xs-3"><a href="category.html"><i class="fa fa-bars"></i><span>分类</span></a></div>
+            <div class="mui-col-xs-3"><a href="cart.html"><i class="fa fa-shopping-cart"></i><span>购物车</span></a></div>
+            <div class="mui-col-xs-3"><a href="user.html"><i class="fa fa-user"></i><span>会员中心</span></a></div>
+        </div>
+    </footer>
+
+
+
+    <!-- 5. 引入mui的js文件 提供mui js插件-->
+    <script src="lib/mui/js/mui.js"></script>
+    <!-- 6. 引入zepto的js文件 操作元素发送请求  zepto就相当于jquery-->
+    <script src="lib/zepto/zepto.min.js"></script>
+    <!-- 7. 引入模板引擎的js文件 渲染模板的template 3.0的模板因为  template-web是4.0最新模板引擎-->
+    <!-- <script src="lib/artTemplate/template.js"></script> -->
+    <script src="lib/artTemplate/template-web.js"></script>
+    <!-- 8. 引入主页的js文件 -->
+    <script src="js/productlist.js"></script>
+</body>
+
+</html>

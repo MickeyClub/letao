@@ -1,10 +1,13 @@
 $(function () {
     var letao = new Letao();
+    // 初始化区域滚动
     letao.initScroll()
+     //获取分类的数据
     letao.getCategory()
+    // 获取品牌数据
     letao.getBrandData(1);
+    //  点击左侧分类,获取品牌的数据
     letao.getBrand();
-
 })
 
 var Letao = function () {
@@ -16,7 +19,7 @@ Letao.prototype = {
     initScroll: function () {
         mui('.mui-scroll-wrapper').scroll({
             deceleration: 0.0005, //flick 减速系数，系数越大，滚动速度越慢，滚动距离越小，默认值0.0006,
-            
+
             scrollY: true, //是否竖向滚动
             scrollX: false, //是否横向滚动
             startX: 0, //初始化时滚动至x
@@ -26,7 +29,6 @@ Letao.prototype = {
             bounce: true //是否启用回弹
 
             // 以上都是默认值 如果都一样可以不设置参数
-
         });
     },
      //获取分类的数据
@@ -38,8 +40,7 @@ Letao.prototype = {
                 // console.log(data);
                 // 2.  调用模板,并渲染到html页面
                 var html = template('categoryTmp',data);
-                $('.category-left ul').html(html);
-
+                $('.category-left ul').html(html)
             }
         })
      },
@@ -67,10 +68,8 @@ Letao.prototype = {
                 // 2. 调用模板 渲染页面
                 var html = template("brandTmp",data);
                 console.log(html);
-                $('.category-right .mui-row').html(html);
-                
+                $('.category-right .mui-row').html(html);              
             }
         })
     }
-  
 }
