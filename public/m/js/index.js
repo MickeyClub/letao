@@ -1,6 +1,8 @@
 $(function () {
     var letao = new Letao();
+    // 轮播图初始化
     letao.initSlide();
+    // 页面区域滚动
     letao.initScroll()
 })
 
@@ -31,7 +33,6 @@ Letao.prototype = {
             bounce: true //是否启用回弹
 
             // 以上都是默认值 如果都一样可以不设置参数
-
         });
     }
 }

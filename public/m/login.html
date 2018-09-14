@@ -10,7 +10,7 @@
     <!-- 2. 引入字体图标的CSS文件  提供字体图标-->
     <link rel="stylesheet" href="lib/fontAwesome/css/font-awesome.css">
     <!-- 3. 引入主页的less文件 注意 rel="stylesheet/less"-->
-    <link rel="stylesheet/less" href="less/search.less">
+    <link rel="stylesheet/less" href="less/login.less">
     <!-- 4. 引入less的编译器文件 编译less -->
     <script src="lib/less/less.js"></script>
 </head>
@@ -19,33 +19,25 @@
     <!-- 头部区域 -->
     <header id="header">
         <a href="#" class="fa fa-arrow-left"></a>
-        <h4>搜索中心</h4>
+        <h4>登录中心</h4>
     </header>
     <!-- 中间主体区域 -->
-    <main id="main">
-        <div class="search-from">
-            <input type="search" class="input-search" placeholder="请输入"> 
-            <button type="button" class="btn-search mui-btn mui-btn-primary">按钮</button>
-        </div>
-
-        <!-- 搜索历史 -->
-        <div class="search-history">
-            <div class="title mui-clearfix">
-                <span class="mui-pull-left">搜索记录</span>
-                <a href="#" class="mui-pull-right btn-trash"><i class="fa fa-trash">清空记录</i> </a>
+    <main id="mian">
+        <form class="mui-input-group">
+            <div class="mui-input-row">
+                <label>用户名</label>
+                <input type="text" class="username" placeholder="请输入用户名">
             </div>
-
-            <div class="content">
-                <ul>
-                    <!-- <li>
-                        <a href="#">
-                            <span>{{value.search}}</span>
-                        </a>
-                        <i class="fa fa-close mui-pull-right btn-delete" data-id="{{value.id}}"></i>
-                    </li> -->
-                </ul>
+            <div class="mui-input-row">
+                <label>密码</label>
+                <input type="password" class="mui-input-password password" placeholder="请输入密码">
             </div>
-        </div>
+            <div class="mui-button-row">
+                <button type="button" class="mui-btn mui-btn-primary btn-login">登录</button>
+                <a href="./register.html" type="button" class="mui-btn mui-btn-danger btn-register">免费注册</a>
+            </div>
+        </form>
+
     </main>
     <!-- 底部区域 -->
     <footer id="footer">
@@ -57,31 +49,6 @@
             <div class="mui-col-xs-3"><a href="user.html"><i class="fa fa-user"></i><span>会员中心</span></a></div>
         </div>
     </footer>
-    
-    <!-- 模板 -->
-    <!-- <script id="historyTmp" type="text/html">
-        {{each list value i}}
-            <li>
-                <a href="#">
-                    <span>{{value.search}}</span>
-                </a>
-                <i class="fa fa-close mui-pull-right btn-delete" data-id="{{value.id}}"></i>
-            </li>
-
-        {{/each}}
-    </script> -->
-
-    <script id="historyTmp" type="text/html">
-        {{each list value }}
-            <li>
-                <a href="productlist.html?search={{value.search}}">
-                    <span>{{value.search}}</span>
-                </a>
-                <i class="fa fa-close mui-pull-right btn-delete" data-id="{{value.id}}"></i>
-            </li>
-        {{/each}}
-    
-    </script>
 
     <!-- 5. 引入mui的js文件 提供mui js插件-->
     <script src="lib/mui/js/mui.js"></script>
@@ -91,7 +58,7 @@
     <!-- <script src="lib/artTemplate/template.js"></script> -->
     <script src="lib/artTemplate/template-web.js"></script>
     <!-- 8. 引入主页的js文件 -->
-    <script src="js/search.js"></script>
+    <script src="js/login.js"></script>
 </body>
 
 </html>

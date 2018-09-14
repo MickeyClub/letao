@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+        img{
+            display: block;
+            max-height: 300px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>懒加载页面</h1>
+        <img src="./images/brand1.png" data-src='./images/active1.png' alt="">
+        <img src="./images/brand1.png" data-src='./images/active2.png' alt="">
+        <img src="./images/brand1.png" data-src='./images/active3.png' alt="">
+        <img src="./images/brand1.png" data-src='./images/active4.png' alt="">
+        <img src="./images/brand1.png" data-src='./images/active5.png' alt="">
+        <img src="./images/brand1.png" data-src='./images/brand1.png' alt="">
+        <img src="./images/brand1.png" data-src='./images/brand2.png' alt="">
+        <img src="./images/brand1.png" data-src='./images/brand3.png' alt="">
+        <img src="./images/brand1.png" data-src='./images/brand4.png' alt="">
+    </div>
+</body>
+</html>
+<script>
+window.onload = function(){
+    var scrollTop = window.scrollY;
+    var imgs = Array.from(document.querySelectorAll('img'));
+
+    lazyLoad();
+
+    window.onscroll = () => {
+        scrollTop = window.scrollY;
+        setInterval(function () {
+            lazyLoad(); 
+        },1000)
+    }
+    function lazyLoad(){
+        imgs.forEach((item,index)=>{
+            console.log(item);
+            if( item.offsetTop < window.innerHeight + scrollTop ){
+                console.log(item.offsetTop)
+                item.setAttribute('src',item.dataset.src)
+            }
+        })
+    }
+}    
+</script>

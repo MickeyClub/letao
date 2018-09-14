@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <!-- 1. 引入bootstrap.css文件 -->
+  <link rel="stylesheet" href="lib/bootstrap/css/bootstrap.css">
+  <link rel="stylesheet" href="lib/font-awesome/css/font-awesome.css">
+  <link rel="stylesheet/less" href="less/index.less">
+  <script src="lib/less/less.js"></script>
+</head>
+
+<body>
+
+  <main id="main">
+    <div class="left">
+      <div class="title">
+        <img src="images/my_logo.jpg" alt="">
+        <h4>张学友</h4>
+      </div>
+      <div class="content">
+        <ul class="list-group">
+          <li class="list-group-item active">
+            <a href="#" data-toggle="collapse" href="#collapseExample">用户管理</a>
+          </li>
+          <li class="list-group-item">
+            <a data-toggle="collapse" href="#categoryManage">分类管理</a>
+            <ul class="collapse" id="categoryManage">
+              <li class="list-group-item">
+                <a href="categoryFirst.html">一级分类</a>
+              </li>
+              <li class="list-group-item">
+                <a href="categorySecond.html">二级分类</a>
+              </li>
+            </ul>
+          </li>
+          <li class="list-group-item">
+            <a href="#">商品管理</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+
+
+
+    <div class="right">
+      <div class="title clearfix">
+        <a href="#" class="pull-left">
+          <i class="fa fa-navicon"></i>
+        </a>
+        <a href="#" class="pull-right btn-exit">
+          <i class="fa fa-sign-out"></i>
+          <span>退出</span>
+        </a>
+      </div>
+      <div class="content">
+
+        <div class="table-box user-manage">
+          <div class="add-category">
+            <button type="button" class="btn btn-primary addBrand" data-toggle="modal" data-target="#myModal">添加品牌</button>
+            <!-- 模态框 -->
+            <!-- data-toggle="modal" 启动模态框 data-target="#myModal" 模态框的控制目标-->
+            <div class="modal fade" tabindex="-1" role="dialog" id="myModal">
+              <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <button  type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    <h4 class="modal-title">添加品牌</h4>
+                  </div>
+                  <div class="modal-body">
+                    <div class="group">
+                        请选择分类:
+                        <select id="selectBrand">
+                          <!-- <option value="运动馆">运动馆</option>
+                          <option value="生活馆">生活馆</option>
+                          <option value="生活馆">生活馆</option> -->
+                        </select>
+                    </div> 
+                    <br>
+                    <input id="brandName" type="text" class="form-control">
+                    <br>
+                    <div>
+                        <input type="file" name="" id="fileChange" class="btn btn-default">
+                        <img src="./images/1.png" alt="" class="file-img"> 
+                    </div>
+                  </div>
+                  <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+                    <button type="button" class="btn btn-primary btn-save">保存</button>
+                  </div>
+                </div><!-- /.modal-content -->
+              </div><!-- /.modal-dialog -->
+            </div><!-- /.modal -->
+
+          </div>
+
+
+
+
+          <div class="table-box">
+            <table class="table table-bordered table-striped table-hover">
+              <thead>
+                <tr>
+                  <th>#</th>
+                  <th>品牌编号</th>
+                  <th>品牌名称</th>
+                  <th>品牌logo</th>
+                  <th>所属分类</th>
+                </tr>
+              </thead>
+
+              <tbody>
+                <tr>
+                  <th scope="row"><input type="checkbox" name="" id=""></th>
+                  <td>1</td>
+                  <td>匡威</td>
+                  <td><img src="/mobile/images/brand5.png" alt=""></td>
+                  <td>运动馆</td>
+                </tr>
+  
+              </tbody>
+            </table>
+          </div>
+        </div>
+        <!-- 分页插件 -->
+        <div class="page-box">
+          <ul id="page"></ul>
+        </div>
+      </div>
+    </div>
+    </div>
+  </main>
+
+  <!-- 品牌模板 -->
+  <script id="queryBrandTmp" type="text/html">
+    {{each rows value}}
+
+      <tr>
+        <th scope="row"><input type="checkbox" name="" id=""></th>
+        <td>{{value.id}}</td>
+        <td>{{value.brandName}}</td>
+        <td><img src="{{value.brandLogo}}" alt=""></td>
+        <td>{{value.categoryName}}</td>
+      </tr>
+    
+    {{/each}}
+  </script>
+
+  <!-- 添加品牌模板 -->
+  <script id="selectBrandTmp" type="text/html">
+    {{each rows value}}
+      <option value="{{value.id}}" >{{value.categoryName}}</option>
+    {{/each}}
+  </script>
+
+
+  <script src="lib/jquery/jquery.js"></script>
+  <script src="lib/bootstrap/js/bootstrap.js"></script>
+  <script src="lib/artTemplate//template-web.js"></script>
+  <script src="lib/bootstrap/js/bootstrap-paginator.js"></script>
+  <script src="js/categorySecond.js"></script>
+</body>
+
+</html>

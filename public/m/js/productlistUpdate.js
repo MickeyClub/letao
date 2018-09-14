@@ -12,6 +12,8 @@ $(function () {
     letao.productListSort();
     // 根据url刷新页面
     letao.getProductList();
+    // 购买函数
+    letao.productBuy();
 });
 
 var Letao = function () {
@@ -43,25 +45,13 @@ Letao.prototype = {
                         //是因为模拟请求延迟给个1秒的延迟 1秒钟后结束下拉刷新
                         setTimeout(function () {
                             //  发送请求商品列表数据
-                            console.log(that.search);
-                            $.ajax({
-                                url: "/product/queryProduct",
-                                //注意由于API必须传入page和pageSize 如果不传黑窗会挂掉 重新开启
-                                data: {
-                                    page: that.page,
-                                    pageSize: that.pageSize,
-                                    proName: that.search
-                                },
-                                success: function (data) {
-                                    // console.log(this.search);
-                                    var html = template("productListTmp", data);
-                                    console.log(html);
-                                    $('.product-content .mui-row').html(html);
-                                    //这才是真实结束下拉刷新的方法
-                                    mui('#refreshContainer').pullRefresh().endPulldownToRefresh();
-                                    // 重置上拉加载更多 重置的时候会默认自动触发一次上拉加载
-                                    mui('#refreshContainer').pullRefresh().refresh(true);
-                                }
+                            that.getProductListData(function (data) {
+                                var html = template("productListTmp", data);
+                                $('.product-content .mui-row').html(html);
+                                //这才是真实结束下拉刷新的方法
+                                mui('#refreshContainer').pullRefresh().endPulldownToRefresh();
+                                // 重置上拉加载更多 重置的时候会默认自动触发一次上拉加载
+                                mui('#refreshContainer').pullRefresh().refresh(true);
                             })
                         }, 1000)
                     }
@@ -75,28 +65,18 @@ Letao.prototype = {
                         setTimeout(function () {
                             that.page++;
                             //  发送请求商品列表数据
-                            $.ajax({
-                                url: "/product/queryProduct",
-                                // 一定要传参数
-                                data: {
-                                    page: that.page,
-                                    pageSize: that.pageSize,
-                                    proName: that.search,
-
-                                },
-                                success: function (data) {
-                                    if(data.data.length > 0){
-                                        // console.log(this.search);
-                                        console.log(data);
-                                        var html = template("productListTmp", data);
-                                        console.log(html);
-                                        $('.product-content .mui-row').append(html);
-                                        //这才是真实结束上拉加载更多的方法
-                                        mui('#refreshContainer').pullRefresh().endPullupToRefresh(false);
-                                    }else{
-                                        //  结束上拉加载更多 并且提示没有更多数据
-                                        mui('#refreshContainer').pullRefresh().endPullupToRefresh(true);
-                                    }
+                            that.getProductListData(function (data) {
+                                if(data.data.length > 0){
+                                    // console.log(this.search);
+                                    console.log(data);
+                                    var html = template("productListTmp", data);
+                                    console.log(html);
+                                    $('.product-content .mui-row').append(html);
+                                    //这才是真实结束上拉加载更多的方法
+                                    mui('#refreshContainer').pullRefresh().endPullupToRefresh(false);
+                                }else{
+                                    //  结束上拉加载更多 并且提示没有更多数据
+                                    mui('#refreshContainer').pullRefresh().endPullupToRefresh(true);
                                 }
                             })
                         }, 1000);
@@ -152,59 +132,31 @@ Letao.prototype = {
             // 3. 获取当前的排序顺序   1升序 2降序
             var sort = $(this).data('sort');
             // 4. 判断当前排序方式
-            if(sort == 1){
-                sort = 2
-            }else{
-                sort = 1;
-            }
+            sort = sort == 1 ? sort = 2 : sort = 1;
             // 5. 更新当前a排序顺序
             $(this).data('sort',sort);
             // 6. 判断当前排序的方式,如果是价格,就调用价格api排序
             if(sortType == 'price'){
                 // 7. 发送请求渲染页面
-                $.ajax({
-                    url: "/product/queryProduct",
-                    // 一定要传参数
-                    data: {
-                        page: that.page,
-                        pageSize: that.pageSize,
-                        proName: that.search,
-                        // 8. 传入当前价格排序sort
-                        price: sort
-                    },
-                    success: function (data) {
-                        // 9. 调用模板
-                        var html = template("productListTmp", data);
-                        // 10. 渲染页面
-                        $('.product-content .mui-row').html(html);
-                        //11. 重置上拉加载更多
-                        mui('#refreshContainer').pullRefresh().refresh(true);
-
-                    }
-                })
+                that.getProductListData(function (data) {
+                    // 9. 调用模板
+                    var html = template("productListTmp", data);
+                    // 10. 渲染页面
+                    $('.product-content .mui-row').html(html);
+                    //11. 重置上拉加载更多
+                    mui('#refreshContainer').pullRefresh().refresh(true);
+                },{price: sort})
             }else{
-                $.ajax({
-                    url: "/product/queryProduct",
-                    // 一定要传参数
-                    data: {
-                        page: that.page,
-                        pageSize: that.pageSize,
-                        proName: that.search,
-                        // 传入销量的sort
-                        num: sort
-                    },
-                    success: function (data) {
-                        // console.log(this.search);
-                        console.log(data);
-                        var html = template("productListTmp", data);
-                        console.log(html);
-                        $('.product-content .mui-row').html(html);
-                        // 重置上拉加载更多
-                        mui('#refreshContainer').pullRefresh().refresh(true);
-                    }
-                })
+                 // 7. 发送请求渲染页面
+                 that.getProductListData(function (data) {
+                    // 9. 调用模板
+                    var html = template("productListTmp", data);
+                    // 10. 渲染页面
+                    $('.product-content .mui-row').html(html);
+                    //11. 重置上拉加载更多
+                    mui('#refreshContainer').pullRefresh().refresh(true);
+                },{num: sort})
             }
-            
         })
     },
     
@@ -214,27 +166,60 @@ Letao.prototype = {
         // 搜索重置page1
         that.page = 1;
         // 发送请求
+        that.getProductListData(function (data) {
+            // 生成html
+            var html = template("productListTmp", data);
+            // 渲染页面
+            $('.product-content .mui-row').html(html);
+            // 重置上拉加载更多
+            mui('#refreshContainer').pullRefresh().refresh(true);
+        })
+    },
+
+    
+    // 封装一部分专门用来获取数据函数
+    getProductListData: function (callback,params) {
+        var that = this;
+        // 发送请求
         $.ajax({
             url: "/product/queryProduct",
-            // 一定要传参数
             data: {
                 page: that.page,
                 pageSize: that.pageSize,
                 proName: that.search,
+                price: params && params.price,
+                num: params && params.num
             },
             success: function (data) {
-                // console.log(this.search);
-                console.log(data);
-                var html = template("productListTmp", data);
-                console.log(html);
-                //这才是真实结束上拉加载更多的方法 
-                $('.product-content .mui-row').html(html);
-                // 搜索完成重置上拉加载更多 
-                mui('#refreshContainer').pullRefresh().refresh(true);
-                
+                // 由于success里的逻辑代码不一样,使用回调函数
+                callback && callback(data);
             }
-        })  
+        })
     },
+
+
+    productBuy: function () {
+        // 1. 给购买添加点击事件 事件委托
+        $('.product-content .mui-row').on('tap','.product-buy',function () {
+            var id = $(this).data('id');
+            window.location.href = "detail.html?id=" + id;
+        })
+    },
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
     //专门获取地址栏参数的方法
     getQueryString: function(name) {

@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script id="tmp" type="text/html">
+        {{name}}
+        <!-- 如果调用模板传递过来的对象的属性的值是一个数组,不能直接使用,就需要遍历each -->
+        {{ each fenshu value i }}
+            <p>{{value}}</p>
+        {{ /each }}
+    </script>
+
+    <script src="./public/m/lib/artTemplate//template-web.js"></script>
+    <script>
+        var obj = {name: "Mickey", fenshu:[80,90,100,70]};
+        var html = template('tmp',obj);
+        document.body.innerHTML = html;
+    </script>
+</body>
+</html>
+
+
+攀姐真的是一个非常负责随和的老师,性格非常好,而且特别爱吃,
+会给我们带零食,在学习上每次遇到bug她都能迎刃而解,手动点赞
+
+丽姐也是很负责的老师,虽然带了很多班级,但还是经常的来回奔波的过来
+监督我们的学习关心我们的学习环境
+,丽姐辛苦了!
+\画的略丑,见谅

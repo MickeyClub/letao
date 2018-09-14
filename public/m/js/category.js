@@ -36,17 +36,21 @@ Letao.prototype = {
         //  1. 请求左侧的api接口
         $.ajax({
             url: "/category/queryTopCategory",
+            //发送请求之前触发的函数
+            beforeSend: function () {
+                $('#mask').show()  
+              },
             success: function (data) {
                 // console.log(data);
                 // 2.  调用模板,并渲染到html页面
                 var html = template('categoryTmp',data);
                 $('.category-left ul').html(html)
+                // 请求渲染完毕后隐藏加载中效果
+                $('#mask').hide();
             }
         })
      },
-    //  getCategoryId: function () {
-    //      var lis = $('category-left ul li').on
-    //  },
+
     //  点击左侧分类,获取品牌的数据
     getBrand: function () {
         var that = this;
@@ -64,11 +68,17 @@ Letao.prototype = {
         $.ajax({
             url: "/category/querySecondCategory",
             data: {'id': id},
+            //发送请求之前触发的函数
+            beforeSend: function () {
+              $('#mask').show()  
+            },
             success: function (data) {
                 // 2. 调用模板 渲染页面
                 var html = template("brandTmp",data);
                 console.log(html);
                 $('.category-right .mui-row').html(html);              
+                // 请求渲染完毕后隐藏加载中效果
+                $('#mask').hide();
             }
         })
     }

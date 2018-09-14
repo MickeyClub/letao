@@ -134,6 +134,7 @@ a {
 
 // 底部
 #footer{
+    z-index: 999;
     .mui-row{
         text-align: center;
         a{  
@@ -178,4 +179,75 @@ a {
         background-color: @mainColor;
         border-radius: 0px 6px 6px 0px;
     }
+}
+
+#mask{
+    position: fixed;
+    top: 0px;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 998;
+    background-color: #ccc;
+    display: none;
+    img{
+        width: 200px;
+        height: 200px;
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%,-50%)
+    }
+    .spinner {
+        margin: 300px auto;
+        width: 50px;
+        height: 60px;
+        text-align: center;
+        font-size: 10px;
+      }
+      
+      .spinner > div {
+        background-color: #67CF22;
+        height: 100%;
+        width: 6px;
+        display: inline-block;
+        
+        -webkit-animation: stretchdelay 1.2s infinite ease-in-out;
+        animation: stretchdelay 1.2s infinite ease-in-out;
+      }
+      
+      .spinner .rect2 {
+        -webkit-animation-delay: -1.1s;
+        animation-delay: -1.1s;
+      }
+      
+      .spinner .rect3 {
+        -webkit-animation-delay: -1.0s;
+        animation-delay: -1.0s;
+      }
+      
+      .spinner .rect4 {
+        -webkit-animation-delay: -0.9s;
+        animation-delay: -0.9s;
+      }
+      
+      .spinner .rect5 {
+        -webkit-animation-delay: -0.8s;
+        animation-delay: -0.8s;
+      }
+      
+      @-webkit-keyframes stretchdelay {
+        0%, 40%, 100% { -webkit-transform: scaleY(0.4) }  
+        20% { -webkit-transform: scaleY(1.0) }
+      }
+      
+      @keyframes stretchdelay {
+        0%, 40%, 100% { 
+          transform: scaleY(0.4);
+          -webkit-transform: scaleY(0.4);
+        }  20% { 
+          transform: scaleY(1.0);
+          -webkit-transform: scaleY(1.0);
+        }
+      }
 }

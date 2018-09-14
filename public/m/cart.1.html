@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <title>自写版乐淘移动端</title>
+    <!-- 1. 引入mui的CSS文件 提供mui样式 -->
+    <link rel="stylesheet" href="lib/mui/css/mui.css">
+    <!-- 2. 引入字体图标的CSS文件  提供字体图标-->
+    <link rel="stylesheet" href="lib/fontAwesome/css/font-awesome.css">
+    <!-- 3. 引入主页的less文件 注意 rel="stylesheet/less"-->
+    <link rel="stylesheet/less" href="less/cart.less">
+    <!-- 4. 引入less的编译器文件 编译less -->
+    <script src="lib/less/less.js"></script>
+</head>
+
+<body>
+    <!-- 头部区域 -->
+    <header id="header">
+        <a href="javascript:history.back();" class="fa fa-arrow-left"></a>
+        <h4>购物车</h4>
+        <a href="#" class="fa fa-refresh"></a>
+    </header>
+    <!-- 中间主体区域 -->
+    <main id="main">
+        <!-- 1. 添加区域滚动父容器 -->
+        <div id="refreshContainer" class="mui-scroll-wrapper">
+            <!-- 2. 添加区域滚动子容器 -->
+            <div class="mui-scroll">
+                <!-- 购物车商品列表 -->
+                <section id="cartList">
+                    <ul class="mui-table-view">
+                        <!-- 图文列表 -->
+                        <!-- <li class="mui-table-view-cell mui-media">
+                            <a href="javascript:;" class="mui-navigate-right">
+                                <div class="mui-pull-left">
+                                    <img class="mui-media-object" src="/mobile/images/detail.jpg">
+                                    <input type="checkbox">
+                                </div>
+                                <div class="mui-media-body">
+                                    <p class="product-name">
+                                        匡威三星标1970s converse复刻 142334c 144757c三星标黑色高帮
+                                    </p>
+                                    <div class="pruduct-price">
+                                        <span class="new-price">¥499.1</span>
+                                        <del class="oldPrice">¥4999.1</del>
+                                    </div>
+                                    <div class="pruduct-size">
+                                        鞋码: <span>38</span>
+                                    </div>
+                                    <div class="pruduct-num">x<span>1</span></div>
+                                </div>
+                            </a>
+                        </li> -->
+                    </ul>
+                </section>
+            </div>
+        </div>
+
+    </main>
+
+    <!-- 订单总额 -->
+    <section id="count">
+        <div class="mui-pull-left">
+            订单总额: $<span>0.00</span>
+        </div>
+        <div class="mui-pull-right">
+            <button type="button" class="mui-btn mui-btn-red">生成订单</button>
+        </div>
+    </section>
+
+    <!-- 底部区域 -->
+    <footer id="footer">
+        <div class="mui-row">
+            <!-- .mui-col-xs-3*4>a[href="#"]>i.fa.fa-home+span{首页} -->
+            <div class="mui-col-xs-3"><a href="index.html" class="active"><i class="fa fa-home"></i><span>首页</span></a></div>
+            <div class="mui-col-xs-3"><a href="category.html"><i class="fa fa-bars"></i><span>分类</span></a></div>
+            <div class="mui-col-xs-3"><a href="cart.html"><i class="fa fa-shopping-cart"></i><span>购物车</span></a></div>
+            <div class="mui-col-xs-3"><a href="user.html"><i class="fa fa-user"></i><span>会员中心</span></a></div>
+        </div>
+    </footer>
+
+    <!-- 购物车商品模板 -->
+    <script id="cartTmp" type="text/html">
+        {{ each data value i }}
+        <li class="mui-table-view-cell mui-media">
+            <div class="mui-slider-right mui-disabled" data-product-size="{{value.productSize}}" data-size="{{value.size}}" data-product-num="{{value.productNum}}" data-num="{{value.num}}" data-id="{{value.id}}">
+                <a class="mui-btn mui-btn-blue btn-edit">编辑</a>
+                <a class="mui-btn mui-btn-red btn-delete">删除</a>
+            </div>
+
+            <a href="javascript:;" class="mui-navigate-right mui-slider-handle">
+                <div class="mui-pull-left">
+                    <img class="mui-media-object" src="{{value.pic[0].picAddr}}">
+                    <input type="checkbox">
+                </div>
+                <div class="mui-media-body">
+                    <p class="product-name">
+                        {{value.proName}}
+                    </p>
+                    <div class="pruduct-price">
+                        <span class="new-price">¥{{value.price}}</span>
+                        <del class="oldPrice">¥{{value.oldPrice}}</del>
+                    </div>
+                    <div class="pruduct-size">
+                        鞋码: <span>{{value.productSize}}</span>
+                    </div>
+                    <div class="pruduct-num">x<span>{{value.productNum}}</span></div>
+                </div>
+            </a>
+        </li>
+        {{ /each }}
+    </script>
+
+
+    <script id="editCartTmp" type="text/html">
+        <div class="product-size">
+            尺码: 
+            {{each productSize value}}
+                <span class="btn-size {{value == size ? 'active' : ''}}" data-size="{{value}}">{{value}}</span>
+            {{/each}}
+        </div>
+        <div class="product-num">
+            数量：
+            <div class="mui-numbox" data-numbox-step="1" data-numbox-min="1" data-number-max="{{productNum}}">
+                <!-- "-"按钮，点击可减小当前数值 -->
+                <button class="mui-btn mui-numbox-btn-minus" type="button">-</button>
+                <input class="mui-numbox-input" type="number" value="{{num}}" />
+                <!-- "+"按钮，点击可增大当前数值 -->
+                <button class="mui-btn mui-numbox-btn-plus" type="button">+</button>
+            </div>
+            剩余：{{productNum}} 件
+        </div>
+    </script>
+
+    <script id="editCartTmp" type="text/html">
+        
+    </script>
+
+    <!-- 5. 引入mui的js文件 提供mui js插件-->
+    <script src="lib/mui/js/mui.js"></script>
+    <!-- 6. 引入zepto的js文件 操作元素发送请求  zepto就相当于jquery-->
+    <script src="lib/zepto/zepto.min.js"></script>
+    <!-- 7. 引入模板引擎的js文件 渲染模板的template 3.0的模板因为  template-web是4.0最新模板引擎-->
+    <!-- <script src="lib/artTemplate/template.js"></script> -->
+    <script src="lib/artTemplate/template-web.js"></script>
+    <!-- 8. 引入主页的js文件 -->
+    <script src="js/cart.1.js"></script>
+</body>
+
+</html>

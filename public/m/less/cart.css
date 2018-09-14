@@ -1,0 +1,56 @@
+@import "base.css";
+body {
+  padding-bottom: 80px;
+}
+#main #cartList .mui-media .mui-pull-left {
+  min-width: 60px;
+  text-align: center;
+}
+#main #cartList .mui-media .mui-pull-left img {
+  min-width: 60px;
+  display: block;
+  width: 60px;
+  height: 60px;
+}
+#main #cartList .mui-media .mui-media-body {
+  position: relative;
+}
+#main #cartList .mui-media .mui-media-body .product-name {
+  white-space: normal;
+  color: #666;
+}
+#main #cartList .mui-media .mui-media-body .product-price .new-price {
+  color: red;
+}
+#main #cartList .mui-media .mui-media-body .pruduct-num {
+  position: absolute;
+  right: 10px;
+  bottom: 10px;
+  font-size: 14px;
+}
+#count {
+  position: fixed;
+  bottom: 45px;
+  width: 100%;
+  border-top: 1px solid #ccc;
+  background-color: #fff;
+}
+#count .mui-pull-left {
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 30px;
+  padding-left: 20px;
+  color: red;
+}
+.product-size .btn-size {
+  display: inline-block;
+  width: 30px;
+  height: 30px;
+  line-height: 30px;
+  text-align: center;
+  border: 1px solid #ccc;
+  margin-left: 5px;
+}
+.product-size .btn-size.active {
+  background-color: orange;
+}

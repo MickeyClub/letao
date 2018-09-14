@@ -4,9 +4,69 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
+    <title>后台管理主页</title>
+    <!-- 1. 引入bootstrap.css文件 -->
+    <link rel="stylesheet" href="lib/bootstrap/css/bootstrap.css">
+    <link rel="stylesheet" href="lib/font-awesome/css/font-awesome.css">
+    <link rel="stylesheet/less" href="less/login.less">
+    <script src="lib/less/less.js"></script>
 </head>
 <body>
-    后台主页
+    
+    <!-- <form class="form-horizontal">
+
+        <img class="logo" src="" alt="">
+        <div class="form-group">
+          <label for="inputEmail3" class="col-sm-3 control-label">用户名</label>
+          <input type="email" class="form-control" id="username" placeholder="Email">
+        </div>
+        <div class="form-group">
+          <label for="exampleInputPassword1">密码</label>
+          <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
+        </div>
+       
+        <button type="submit" class="btn btn-default">Submit</button>
+      </form> -->
+  
+    <!-- 中间主体区域 -->
+    <!-- <main id="main">
+        <form class="mui-input-group">
+            <div class="mui-input-row">
+                <label>用户名</label>
+                <input type="text" class="username" placeholder="请输入用户名">
+            </div>
+            <div class="mui-input-row">
+                <label>密码</label>
+                <input type="password" class="password" placeholder="请输入密码">
+            </div>
+            <div class="mui-button-row">
+                <button type="button" class="mui-btn mui-btn-primary btn-login">登录</button>
+            </div>
+        </form>
+    </main> -->
+
+    <form class="form-horizontal" id="login-form">
+        <img src="images/monkey.png" alt="" class="logo">
+        <div class="input-group">
+            <span class="input-group-addon" id="basic-addon1"><i class="fa fa-user"></i></span>
+            <input type="text" class="form-control" id="username" placeholder="用户名" aria-describedby="basic-addon1">
+        </div>
+        <div class="input-group">
+            <span class="input-group-addon" id="basic-addon1"><i class="fa fa-key"></i></span>
+            <input type="password" class="form-control" id="password" placeholder="密码" aria-describedby="basic-addon1">
+        </div>
+        <div class="form-group">
+            <div class="col-xs-12">
+                <!-- 注意把按钮改成普通按钮 -->
+                <button type="button" class="btn btn-primary btn-login">登录</button>
+            </div>
+        </div>
+    </form>
+
+
+    <script src="lib/jquery/jquery.js"></script>
+    <script src="lib/bootstrap/js/bootstrap.js"></script>
+    <script src="lib/artTemplate//template-web.js"></script>
+    <script src="js/login.js"></script>
 </body>
 </html>

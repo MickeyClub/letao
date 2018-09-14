@@ -1,0 +1,67 @@
+@import "base.less";
+
+html,body{
+    // height: auto;
+}
+
+#main{
+    // height: auto;
+    .product{
+        .product-name{
+            padding: 5px 10px;
+            font-size: 14px;
+            border-bottom: 1px solid #ccc;
+            span{
+                font-weight: 600;
+            }
+        }
+        [class^='product-']{
+            padding: 10px 5px;
+            font-size: 14px;
+            border: 1px solid #ccc;
+        }
+        .product-price{
+         
+            .new-price{
+                font-size: 20px;
+                font-weight: 600;
+            }
+            .old-price{
+                font-size: 14px;
+                color: red;
+            }
+        }
+        .product-size{
+            .btn-size{
+                display: inline-block;
+                width: 30px;
+                height: 30px;
+                line-height: 30px;
+                text-align: center;
+                border: 1px solid #ccc;
+                margin-left: 5px;
+                &.active{
+                    background-color: orange;
+                }
+            }
+        }
+    }
+}
+
+
+#footer{
+    background-color: #ccc;
+    border-top: 1px solid #000;
+    .mui-row{
+        >div{
+            padding: 4px 6px;
+            a{
+                font-size: 20px;
+                color: #333;
+            }
+            button{
+                width: 100%;
+            }
+        }
+    }
+}
